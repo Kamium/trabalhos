@@ -1,1 +1,7 @@
 trabalho final do curso de Programação Orientada a Objetos 2 na Universidade Federal de Uberlãndia
+
+Requisitos:
+-Pelo menos 3 Padrões de Projeto (Singleton não conta)
+-Persistência de Dados (Hibernate ou outro)
+-Interface gráfica (JavaFX ou outro)
+-Código comentado
