@@ -1,0 +1,61 @@
+sprites.png
+size: 60, 380
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Archer
+  rotate: false
+  xy: 0, 0
+  size: 50, 80
+  orig: 50, 80
+  offset: 0, 0
+  index: -1
+Castanho
+  rotate: false
+  xy: 0, 80
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
+Loiro
+  rotate: false
+  xy: 30, 80
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
+Preto
+  rotate: false
+  xy: 0, 110
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
+Ruivo
+  rotate: false
+  xy: 30, 110
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
+Swordsman
+  rotate: false
+  xy: 0, 140
+  size: 50, 80
+  orig: 50, 80
+  offset: 0, 0
+  index: -1
+Thief
+  rotate: false
+  xy: 0, 220
+  size: 50, 80
+  orig: 50, 80
+  offset: 0, 0
+  index: -1
+Wizard
+  rotate: false
+  xy: 0, 300
+  size: 50, 80
+  orig: 50, 80
+  offset: 0, 0
+  index: -1
