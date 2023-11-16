@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.container--left {
+  width: 50vw;
+  height: 100vh;
+  float: left;
+  padding: 16px;
+  overflow-y: scroll;
+}
+.container--right {
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url(../assets/images/homem1.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.wrapper--left,
+.wrapper--right {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.wrapper--left {
+  min-height: 700px;
+}
+
+.return__link {
+  display: block;
+  width: 100%;
+  margin-bottom: 64px;
+}
+.return__link img {
+  display: block;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-wrapper {
+  width: 330px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form__title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.form__subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+.form__link {
+  text-align: center;
+}
+.form__link a {
+  font-weight: 600;
+}
+.form__link a:visited {
+  color: #1a56db;
+}
+
+.form-wrapper button {
+  margin: 8px 0 32px 0;
+}
+
+.error-message {
+  display: none;
+  margin: 8px 0 16px 0;
+}
+
+.slogan {
+  width: 90%;
+  padding: 16px;
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.slogan__text {
+  font-size: 28px;
+  line-height: 38px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* MOBILE DEVICES */
+@media screen and (max-width: 740px)  {
+  .container--left {
+    width: 100vw;
+    padding: 16px;
+    position: relative;
+  }
+  .container--right {
+    display: none;
+  }
+}

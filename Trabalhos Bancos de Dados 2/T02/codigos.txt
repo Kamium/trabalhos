@@ -1,0 +1,80 @@
+11.1
+
+SELECT e.nome_cliente, e.numero_conta, e.nome_agencia
+FROM emprestimo e
+INNER JOIN deposito d
+ON e.nome_cliente = d.nome_cliente
+AND e.numero_conta = d.numero_conta
+AND e.nome_agencia = d.nome_agencia;
+
+11.2
+
+SELECT DISTINCT
+    e.nome_cliente, e.numero_conta, e.nome_agencia
+FROM
+    emprestimo e,
+    deposito d
+WHERE
+    e.nome_cliente = d.nome_cliente
+    AND e.numero_conta = d.numero_conta
+    AND e.nome_agencia = d.nome_agencia;
+
+13.1
+
+CREATE OR REPLACE FUNCTION faixa_cliente(nome_cliente_param text)
+RETURNS text AS $$
+DECLARE
+    faixa text;
+BEGIN
+    SELECT
+        CASE
+            WHEN soma_depositos > 6000 THEN 'A'
+            WHEN soma_depositos > 4000 THEN 'B'
+            WHEN soma_depositos > 1000 THEN 'C'
+            ELSE 'D'
+        END
+    INTO faixa
+    FROM (
+        SELECT
+            c.nome_cliente,
+            SUM(d.saldo_deposito) AS soma_depositos
+        FROM
+            cliente c
+        LEFT JOIN
+            deposito d ON c.nome_cliente = d.nome_cliente
+        WHERE
+            c.nome_cliente = nome_cliente_param
+        GROUP BY
+            c.nome_cliente
+    ) AS subquery;
+
+    RETURN faixa;
+END;
+$$ LANGUAGE plpgsql;
+
+select faixa_cliente(nome_cliente), nome_cliente from cliente;
+
+13.2
+
+CREATE OR REPLACE FUNCTION contas_cliente(nome_cliente_param TEXT)
+RETURNS TABLE (nome_cliente TEXT, contas TEXT, cidade_cliente TEXT) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        c.nome_cliente::TEXT,
+        array_to_string(array_agg((a.nome_agencia || '-' || co.numero_conta)::TEXT ORDER BY a.nome_agencia, co.numero_conta), ', ')::TEXT AS contas,
+        c.cidade_cliente::TEXT
+    FROM
+        cliente c
+    LEFT JOIN
+        conta co ON c.nome_cliente = co.nome_cliente
+    LEFT JOIN
+        agencia a ON co.nome_agencia = a.nome_agencia
+    WHERE
+        c.nome_cliente = nome_cliente_param
+    GROUP BY
+        c.nome_cliente, c.cidade_cliente;
+END;
+$$ LANGUAGE plpgsql;
+
+select nome_cliente, contas_cliente(nome_cliente), cidade_cliente from cliente;

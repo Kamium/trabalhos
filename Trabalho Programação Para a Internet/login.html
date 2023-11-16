@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Página Principal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" href="./style/login.css" />
+
+    <!-- Font Awesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/f67e2bd4c4.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/loginValidate.js"></script>
+    <title>Login</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="container--left">
+        <div class="wrapper--left">
+          <div class="form-wrapper">
+            <a href="./index.html" class="return__link"
+              ><img
+                src="./assets/images/logo/logo-full.png"
+                alt="Logo da Desapega"
+            /></a>
+
+            <h2 class="form__title">Acesse sua conta</h2>
+            <form
+              name="formLogin"
+              action="php/login.php"
+              method="post"
+              novalidate
+            >
+              <div class="form-field">
+                <label for="email">E-mail</label>
+                <input
+                  class="input--md"
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                />
+                <span class="error-message" aria-live="polite"></span>
+              </div>
+              <div class="form-field">
+                <label for="password">Senha</label>
+                <input
+                  class="input--md"
+                  type="password"
+                  id="password"
+                  name="password"
+                  required
+                />
+                <span class="error-message" aria-live="polite"></span>
+              </div>
+              <button
+                class="button--md button--primary w-100"
+                type="submit">
+                Entrar
+              </button>
+            </form>
+            <p class="form__link">
+              Não tem uma conta? <a href="./signup.html">Cadastre-se</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="container--right">
+        <div class="wrapper--right">
+          <div class="slogan">
+            <p class="slogan__text">
+              Desapega: O lugar perfeito para encontrar grandes negócios e
+              ofertas imperdíveis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
